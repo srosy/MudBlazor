@@ -10,16 +10,12 @@ namespace MudBlazor
 {
     public class ComponentBaseTextField : ComponentBase
     {
-        protected string LabelClassname =>
-        new CssBuilder()
-           .AddClass($"mud-input-label-shrink mud-focused", Focused)
-          .AddClass(Class)
-        .Build();
         protected string Classname =>
-        new CssBuilder()
-           .AddClass($"mud-focused", Focused)
-          .AddClass(Class)
-        .Build();
+       new CssBuilder("mud-text-field-label")
+        .AddClass("mud-label-animated")
+            .AddClass($"mud-input-label-{Variant.ToDescriptionString()}")
+         .AddClass(Class)
+       .Build();
 
         [Parameter] public string Label { get; set; }
 
@@ -35,12 +31,7 @@ namespace MudBlazor
 
         [Parameter] public Variant Variant { get; set; } = Variant.Text;
 
-        private bool Focused { get; set; }
-
-        protected async Task OnClickHandler(MouseEventArgs ev)
-        {
-            Focused = true;
-        }
+        [Parameter] public Type Type { get; set; } = Type.Text;
 
     }
 }
