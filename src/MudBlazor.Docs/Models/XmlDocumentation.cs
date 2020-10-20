@@ -237,10 +237,10 @@ namespace MudBlazor.Docs.Models
 
 		#region XML Code Documentation
 
-		internal static System.Collections.Generic.HashSet<Assembly> loadedAssemblies = new System.Collections.Generic.HashSet<Assembly>();
-		internal static System.Collections.Generic.Dictionary<string, string> loadedXmlDocumentation = new System.Collections.Generic.Dictionary<string, string>();
+		public static System.Collections.Generic.HashSet<Assembly> loadedAssemblies = new System.Collections.Generic.HashSet<Assembly>();
+		public static System.Collections.Generic.Dictionary<string, string> loadedXmlDocumentation = new System.Collections.Generic.Dictionary<string, string>();
 
-		internal static void LoadXmlDocumentation(Assembly assembly)
+		public static void LoadXmlDocumentation(Assembly assembly)
 		{
 			if (loadedAssemblies.Contains(assembly))
 			{
@@ -384,7 +384,7 @@ namespace MudBlazor.Docs.Models
 			return documentation;
 		}
 
-		internal static string GetXmlDocumenationFormattedString(
+		public static string GetXmlDocumenationFormattedString(
 			Type type,
 			bool isMethodParameter,
 			System.Collections.Generic.Dictionary<string, int> typeGenericMap,
@@ -496,7 +496,7 @@ namespace MudBlazor.Docs.Models
 			return documentation;
 		}
 
-		internal static string XmlDocumentationKeyHelper(string typeFullNameString, string memberNameString)
+		public static string XmlDocumentationKeyHelper(string typeFullNameString, string memberNameString)
 		{
 			string key = Regex.Replace(typeFullNameString, @"\[.*\]", string.Empty).Replace('+', '.');
 			if (!(memberNameString is null))
