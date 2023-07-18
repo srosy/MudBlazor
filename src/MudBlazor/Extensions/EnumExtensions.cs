@@ -8,7 +8,6 @@ namespace MudBlazor.Extensions
 #nullable enable
     public static class EnumExtensions
     {
-        [Obsolete("Please use the auto-generated ToDescriptionString method instead or implement your own extension method.")]
         public static string ToDescriptionString(this Enum value)
         {
             var field = value.GetType().GetField(value.ToString());
